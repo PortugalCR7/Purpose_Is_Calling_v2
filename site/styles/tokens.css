@@ -1,0 +1,76 @@
+/*
+  Generated from design/tokens.json — do not hand-edit color/spacing/type
+  values here. Edit tokens.json, then update this file to match (or wire
+  up scripts/generate-css-vars.js once the build pipeline exists).
+*/
+
+:root {
+  /* register */
+  --color-glacier: #F4F3F0;
+  --color-fog: #C9CDCE;
+  --color-basalt: #161615;
+  --color-ash: #8A8782;
+
+  /* ember accent — scarcity accent, ~3% of surface site-wide */
+  --color-ember-50: #FFF4EC;
+  --color-ember-200: #FFB05C;
+  --color-ember-400: #F07C3C;
+  --color-ember-600: #E4572E;
+  --color-ember-800: #8C2E14;
+
+  /* text pairs, switched by TemperatureController */
+  --text-on-glacier-primary: #1B1B19;
+  --text-on-glacier-secondary: #5B5A56;
+  --text-on-basalt-primary: #F4F3F0;
+  --text-on-basalt-secondary: #ACA9A2;
+
+  --hairline-on-glacier: rgba(27, 27, 25, 0.10);
+  --hairline-on-basalt: rgba(244, 243, 240, 0.12);
+  --hairline-on-glacier-strong: rgba(27, 27, 25, 0.18);
+  --hairline-on-basalt-strong: rgba(244, 243, 240, 0.20);
+
+  /* fibonacci spacing scale — the only spacing values allowed */
+  --space-8: 8px;
+  --space-13: 13px;
+  --space-21: 21px;
+  --space-34: 34px;
+  --space-55: 55px;
+  --space-89: 89px;
+  --space-144: 144px;
+  --space-233: 233px;
+  --space-377: 377px;
+
+  /* type scale */
+  --font-voice: 'Fraunces', serif;
+  --font-ui: 'General Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --text-display-xl: 144px;
+  --text-display-lg: 89px;
+  --text-display-md: 55px;
+  --text-heading-lg: 34px;
+  --text-heading-md: 21px;
+  --text-body: 16px;
+  --text-label: 13px;
+  --text-caption: 11px;
+
+  /* motion */
+  --ease-primary: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 400ms;
+  --duration-base: 800ms;
+  --duration-slow: 1200ms;
+  --duration-slowest: 1400ms;
+  --stagger-unit: 89ms;
+
+  /* the scroll-driven temperature value — set by TemperatureController, 0 to 1 */
+  --temp: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 1ms;
+    --duration-base: 1ms;
+    --duration-slow: 1ms;
+    --duration-slowest: 1ms;
+  }
+}

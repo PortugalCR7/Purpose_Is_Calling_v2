@@ -1,0 +1,23 @@
+name: checks
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  token-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: install
+        working-directory: site
+        run: npm install
+      - name: check no hardcoded design values
+        working-directory: site
+        run: npm run tokens:check
+      - name: build
+        working-directory: site
+        run: npm run build

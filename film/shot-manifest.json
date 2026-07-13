@@ -1,0 +1,109 @@
+{
+  "meta": {
+    "sequence": "Hero cinematic — The Descent / Sacred Instructions revelation",
+    "engine": "Higgsfield",
+    "promptSource": "film/prompt-bible.md",
+    "reviewOrder": ["scene_01", "scene_02", "scene_06", "scene_03", "scene_04", "scene_05"],
+    "statusValues": ["not_started", "still_in_progress", "still_approved", "animating", "plate_approved", "blocked"]
+  },
+  "scenes": [
+    {
+      "id": "scene_01",
+      "name": "The call",
+      "status": "not_started",
+      "stillPath": "film/stills/scene_01.png",
+      "platePath": "film/plates/scene_01.mp4",
+      "cameraHeight_m": "1.6-1.8",
+      "acceptanceCriteria": [
+        "Threshold occupies roughly 5% of frame height or less",
+        "No light or glow emitting from the threshold",
+        "A first-time viewer does not immediately notice the threshold",
+        "No runes, carvings, or decorative marks on any rock surface"
+      ],
+      "blockedReason": null
+    },
+    {
+      "id": "scene_02",
+      "name": "Recognition",
+      "status": "not_started",
+      "stillPath": "film/stills/scene_02.png",
+      "platePath": "film/plates/scene_02.mp4",
+      "cameraHeight_m": "1.6-1.8",
+      "dependsOn": ["scene_01"],
+      "acceptanceCriteria": [
+        "Only the threshold differs from scene_01 — same cliff, same light, same trail",
+        "Glow is visible only inside hairline fractures, not illuminating surroundings",
+        "Dust/pebble fall is subtle, not a visual effect shower",
+        "No new elements introduced beyond fractures, dust, heat shimmer"
+      ],
+      "blockedReason": null
+    },
+    {
+      "id": "scene_03",
+      "name": "Threshold",
+      "status": "not_started",
+      "stillPath": "film/stills/scene_03.png",
+      "platePath": "film/plates/scene_03.mp4",
+      "cameraHeight_m": "1.6-1.8",
+      "dependsOn": ["scene_02"],
+      "acceptanceCriteria": [
+        "Membrane reads as calm liquid light, not lightning or lava-crack texture",
+        "Surrounding basalt remains weathered and ordinary, no new decoration",
+        "Membrane parts only in final ~15% of shot",
+        "Ripple motion is slow sine-wave, not turbulent"
+      ],
+      "blockedReason": null
+    },
+    {
+      "id": "scene_04",
+      "name": "Crossing",
+      "status": "not_started",
+      "stillPath": "film/stills/scene_04.png",
+      "platePath": "film/plates/scene_04.mp4",
+      "cameraHeight_m": "1.6-1.8",
+      "dependsOn": ["scene_03"],
+      "acceptanceCriteria": [
+        "Light behaves like thick warm fog/liquid, not plasma or energy",
+        "No vortex, spin, or radial particle burst",
+        "Obsidian frame visible only at extreme edges",
+        "Motion speed matches prior scenes exactly — no acceleration"
+      ],
+      "blockedReason": null
+    },
+    {
+      "id": "scene_05",
+      "name": "The descent",
+      "status": "not_started",
+      "stillPath": "film/stills/scene_05.png",
+      "platePath": "film/plates/scene_05.mp4",
+      "cameraHeight_m": "descending — first scene where height changes",
+      "dependsOn": ["scene_04"],
+      "acceptanceCriteria": [
+        "Suggested faces/silhouettes come from natural shadow and erosion only",
+        "No carved or sculpted features a reviewer can point to as literal",
+        "No floating symbols or decorative particle effects beyond steam",
+        "Light sources are natural (shafts from above) only"
+      ],
+      "blockedReason": null
+    },
+    {
+      "id": "scene_06",
+      "name": "Revelation",
+      "status": "not_started",
+      "stillPath": "film/stills/scene_06.png",
+      "platePath": "film/plates/scene_06.mp4",
+      "cameraHeight_m": "1.6-1.8, decelerating to still",
+      "dependsOn": ["scene_01", "scene_02"],
+      "acceptanceCriteria": [
+        "Only the monolith surface carries golden geometric detail — walls stay unornamented polished stone",
+        "Final frame has clean reserved space for future personalization overlay",
+        "Camera deceleration is the only scene where pacing intentionally changes",
+        "Chamber reads as monumental and quiet, not ornate"
+      ],
+      "blockedReason": null
+    }
+  ],
+  "changeLog": [
+    { "date": "2026-07-13", "note": "Manifest created. All scenes reset to not_started — the four supplied reference stills did not pass acceptance criteria and are retained as color references only (see master-brief.md intake note)." }
+  ]
+}

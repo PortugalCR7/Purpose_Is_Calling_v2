@@ -1,0 +1,11 @@
+node_modules/
+.next/
+out/
+.env
+.env.local
+*.log
+.DS_Store
+film/plates/*.mp4
+film/stills/*.png
+!film/plates/.gitkeep
+!film/stills/.gitkeep
