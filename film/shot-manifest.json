@@ -10,7 +10,7 @@
     {
       "id": "scene_01",
       "name": "The call",
-      "status": "not_started",
+      "status": "still_in_progress",
       "stillPath": "film/stills/scene_01.png",
       "platePath": "film/plates/scene_01.mp4",
       "cameraHeight_m": "1.6-1.8",
@@ -104,6 +104,7 @@
     }
   ],
   "changeLog": [
-    { "date": "2026-07-13", "note": "Manifest created. All scenes reset to not_started — the four supplied reference stills did not pass acceptance criteria and are retained as color references only (see master-brief.md intake note)." }
+    { "date": "2026-07-13", "note": "Manifest created. All scenes reset to not_started — the four supplied reference stills did not pass acceptance criteria and are retained as color references only (see master-brief.md intake note)." },
+    { "date": "2026-07-14", "note": "scene_01 generated fresh (no prior approved anchor found in repo — confirmed with human operator before generating). Higgsfield Nano Banana Pro, 2K, 16:9, 2 credits, job 882d7c20-b4c7-4743-a107-2d2328094d27. Saved to film/stills/scene_01.png as a candidate; status set to still_in_progress, pending Agent 2 review against acceptance criteria." }
   ]
 }

@@ -53,6 +53,7 @@
   --text-body: 16px;
   --text-label: 13px;
   --text-caption: 11px;
+  --letter-spacing-label-caps: 0.08em;
 
   /* motion */
   --ease-primary: cubic-bezier(0.16, 1, 0.3, 1);
@@ -64,6 +65,10 @@
 
   /* the scroll-driven temperature value — set by TemperatureController, 0 to 1 */
   --temp: 0;
+
+  /* golden split — design/tokens.json -> layout.goldenSplit */
+  --golden-major: 0.618;
+  --golden-minor: 0.382;
 }
 
 @media (prefers-reduced-motion: reduce) {
