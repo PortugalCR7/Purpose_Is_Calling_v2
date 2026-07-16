@@ -1,5 +1,4 @@
 import type { CSSProperties } from "react";
-import { EmberCTA } from "@/components/system/EmberCTA";
 import { RevealText } from "@/components/system/RevealText";
 import { SectionShell } from "@/components/system/SectionShell";
 
@@ -10,6 +9,10 @@ interface HeroProps {
    * section falls back to the flat glacier surface SectionShell already
    * renders. Once scene_01 clears review, pass a poster-frame src here
    * (e.g. from film/plates/scene_01.mp4) with no other structural change.
+   *
+   * content/home-narrative.md -> "Film dependency — none": never substitute
+   * stock imagery as a placeholder. A flat token surface is the correct
+   * placeholder.
    */
   posterSrc?: string;
 }
@@ -32,17 +35,20 @@ const subheadStyle: CSSProperties = {
   marginTop: "var(--space-34)",
 };
 
-const ctaWrapStyle: CSSProperties = {
-  marginTop: "var(--space-55)",
-};
-
 /**
- * design/tokens.json -> componentContracts.SectionShell, RevealText, EmberCTA
+ * design/tokens.json -> componentContracts.SectionShell, RevealText
  * design/motion-spec.md -> "4. Entrance grammar"
- * site/README.md -> "First real tasks, in dependency order" #3
+ * content/home-narrative.md -> "01 — Hero"
  *
  * Headline/subhead copy is locked (Invitation register, option B —
- * decided with the human operator, not sourced from content/pages/home.md).
+ * decided with the client, not sourced from content/pages/home.md).
+ *
+ * NO CTA HERE — deliberate, not an omission. content/home-narrative.md §01:
+ * "The Hero's job is to stop the scroll, not to convert." The three CTAs on
+ * this page live at sections 03, 05, and 07 only (see that file's "CTA
+ * policy"). Do not add a CTA to this component; if you believe one belongs
+ * here, that is an amendment to home-narrative.md and a dialogue with the
+ * client, not a build-task decision.
  */
 export function Hero({ posterSrc }: HeroProps) {
   return (
@@ -58,13 +64,6 @@ export function Hero({ posterSrc }: HeroProps) {
           <RevealText as="p" staggerUnit="line">
             Something in you has been waiting for permission to descend.
           </RevealText>
-        </div>
-        <div style={ctaWrapStyle}>
-          <EmberCTA
-            label="Book a discovery call"
-            href="https://calendly.com/purposeiscalling/purpose-discovery-call"
-            variant="outline"
-          />
         </div>
       </div>
     </SectionShell>
