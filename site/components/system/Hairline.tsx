@@ -54,8 +54,8 @@ export function Hairline({ orientation = "horizontal", temperature }: HairlinePr
       "color-mix(in srgb, var(--hairline-on-basalt) calc(var(--temp) * 100%), var(--hairline-on-glacier))",
     ...(temperature ? { "--temp": temperature === "basalt" ? 1 : 0 } as CSSProperties : {}),
     ...(isHorizontal
-      ? { width: "100%", height: "1px" }
-      : { width: "1px", height: "100%" }),
+      ? { width: "100%", height: "var(--border-hairline)" }
+      : { width: "var(--border-hairline)", height: "100%" }),
     transformOrigin: isHorizontal ? "left" : "top",
     transform: reducedMotion
       ? "none"

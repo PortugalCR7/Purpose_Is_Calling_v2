@@ -3,7 +3,7 @@
   align-items: center;
   gap: var(--space-8);
   padding: var(--space-13) var(--space-21);
-  border: 1px solid var(--color-ember-600);
+  border: var(--border-hairline) solid var(--color-ember-600);
   border-radius: 0;
   background: transparent;
   color: var(--color-ember-600);
@@ -27,7 +27,7 @@
 }
 
 .cta:focus-visible {
-  outline: 1px solid var(--color-ember-400);
+  outline: var(--border-hairline) solid var(--color-ember-400);
   outline-offset: var(--space-8);
 }
 

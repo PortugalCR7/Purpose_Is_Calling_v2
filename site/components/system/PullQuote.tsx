@@ -80,7 +80,7 @@ export function PullQuote({ quote, attribution }: PullQuoteProps) {
     opacity: visible ? 1 : 0,
     transform: reducedMotion || visible ? "none" : "translateY(var(--space-21))",
     transition: riseTransition,
-    transitionDelay: reducedMotion ? "0ms" : "89ms",
+    transitionDelay: reducedMotion ? "0ms" : "var(--stagger-unit)",
   };
 
   const citeStyle: CSSProperties = {
