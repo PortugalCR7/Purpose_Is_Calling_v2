@@ -17,6 +17,10 @@
   --color-ember-400: #F07C3C;
   --color-ember-600: #E4572E;
   --color-ember-800: #8C2E14;
+  /* design/tokens.json -> color.ember.surfaceMixPercent — reuses the
+     cursorEmber opacity ratio (motion.cursorEmber.opacity 0.06) as the
+     intensity for SectionShell's static ember-register surface wash */
+  --ember-surface-mix: 6%;
 
   /* text pairs, switched by TemperatureController */
   --text-on-glacier-primary: #1B1B19;
@@ -28,6 +32,9 @@
   --hairline-on-basalt: rgba(244, 243, 240, 0.12);
   --hairline-on-glacier-strong: rgba(27, 27, 25, 0.18);
   --hairline-on-basalt-strong: rgba(244, 243, 240, 0.20);
+
+  /* design/tokens.json -> border.hairline_px — the only border/outline width in the system */
+  --border-hairline: 1px;
 
   /* fibonacci spacing scale — the only spacing values allowed */
   --space-8: 8px;
