@@ -6,6 +6,7 @@ import { useReducedMotion } from "@/lib/motion/useReducedMotion";
 interface HairlineProps {
   orientation?: "horizontal" | "vertical";
   temperature?: "glacier" | "basalt";
+  revealOn?: "intersect" | "mount";
 }
 
 /**
@@ -18,16 +19,29 @@ interface HairlineProps {
  * divider rendered before any section sets --temp); inside a SectionShell,
  * --temp is already inherited and this prop should be omitted.
  *
- * Entrance: scaleX/scaleY 0 -> 1 from the leading edge on first viewport
- * entry, duration.base. Under reduced motion this collapses to an opacity
- * fade at duration.fast instead of a transform, per motion-spec.md §9.
+ * Entrance: scaleX/scaleY 0 -> 1 from the leading edge, duration.base.
+ * `revealOn="intersect"` (default) triggers on first viewport entry — the
+ * right choice for a hairline scoped to one section's content, matching
+ * PullQuote's divider usage. `revealOn="mount"` triggers once, shortly
+ * after first paint, instead — for a hairline whose extent spans well
+ * beyond a single viewport (e.g. a full-page-height registration line),
+ * where "10% of the element's box has scrolled into view" may never
+ * become true near the top of a long page, so it needs to just reveal
+ * itself on load rather than wait on an intersection that may not fire.
+ * Under reduced motion this collapses to an opacity fade at duration.fast
+ * instead of a transform either way, per motion-spec.md §9.
  */
-export function Hairline({ orientation = "horizontal", temperature }: HairlineProps) {
+export function Hairline({ orientation = "horizontal", temperature, revealOn = "intersect" }: HairlineProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const reducedMotion = useReducedMotion();
 
   useEffect(() => {
+    if (revealOn === "mount") {
+      const frame = requestAnimationFrame(() => setIsVisible(true));
+      return () => cancelAnimationFrame(frame);
+    }
+
     const node = ref.current;
     if (!node) return;
 
@@ -45,7 +59,7 @@ export function Hairline({ orientation = "horizontal", temperature }: HairlinePr
 
     observer.observe(node);
     return () => observer.disconnect();
-  }, []);
+  }, [revealOn]);
 
   const isHorizontal = orientation === "horizontal";
 

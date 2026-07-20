@@ -13,9 +13,12 @@ interface TheCallSectionProps {
   posterSrc?: string;
 }
 
+// design/tokens.json -> layout.maxContentWidth_px — reading-column cap,
+// keeps text from running edge-to-edge on wide viewports.
 const contentStyle: CSSProperties = {
   position: "relative",
   zIndex: 1,
+  maxWidth: "var(--max-content-width)",
 };
 
 const posterStyle: CSSProperties = {

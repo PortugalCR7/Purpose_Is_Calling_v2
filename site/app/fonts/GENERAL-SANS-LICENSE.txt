@@ -1,0 +1,23 @@
+General Sans — self-hosted subset (Regular 400, Medium 500 only)
+
+Source: https://www.fontshare.com/fonts/general-sans
+Publisher: Indian Type Foundry, distributed via Fontshare
+License: Fontshare Free Font EULA (FF EULA), full text below.
+
+The FF EULA explicitly permits use "in any media (including Print, Web,
+Mobile, Digital, Apps, ePub, Broadcasting and OEM) at any scale, at any
+location worldwide" free of charge, for personal or commercial use
+(§01). Self-hosting these two static woff2 files for this site's own
+use is covered by that grant. The EULA's §02 restriction on "font
+serving" refers to running a font-serving/replacement service for third
+parties (comparable to Cufon/EOT-style redistribution), not to a site
+self-hosting the font for its own pages — that redistribution restriction
+is why the files are committed here rather than fetched at runtime from
+Fontshare's CDN, and why only two weights are included rather than the
+full family.
+
+Only GeneralSans-Regular.woff2 (400) and GeneralSans-Medium.woff2 (500)
+are included, matching design/tokens.json -> typography.weight ("Two
+weights only, regular and medium. Never bold.").
+
+Full EULA text: https://www.fontshare.com/licenses/ff-eula
