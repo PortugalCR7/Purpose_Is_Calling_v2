@@ -48,8 +48,6 @@
   --space-377: 377px;
 
   /* type scale */
-  --font-voice: 'Fraunces', serif;
-  --font-ui: 'General Sans', sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
 
   --text-display-xl: 144px;
@@ -76,6 +74,22 @@
   /* golden split — design/tokens.json -> layout.goldenSplit */
   --golden-major: 0.618;
   --golden-minor: 0.382;
+
+  /* design/tokens.json -> layout.maxContentWidth_px — reading-column cap
+     applied to section content wrappers so text doesn't run edge-to-edge
+     on wide viewports. */
+  --max-content-width: 1440px;
+}
+
+/*
+  design/tokens.json -> typography.families.voice / .ui — element-level
+  fallback (lower specificity than a class selector) so site/app/layout.tsx's
+  next/font variables (applied via className on <html>, a class selector)
+  always win once loaded, deterministically, regardless of stylesheet order.
+*/
+html {
+  --font-voice: 'Fraunces', serif;
+  --font-ui: 'General Sans', sans-serif;
 }
 
 @media (prefers-reduced-motion: reduce) {

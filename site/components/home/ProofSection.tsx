@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { Hairline } from "@/components/system/Hairline";
 import { PullQuote } from "@/components/system/PullQuote";
 import { SectionShell } from "@/components/system/SectionShell";
 
@@ -12,9 +13,12 @@ interface ProofSectionProps {
   posterSrc?: string;
 }
 
+// design/tokens.json -> layout.maxContentWidth_px — reading-column cap,
+// keeps text from running edge-to-edge on wide viewports.
 const contentStyle: CSSProperties = {
   position: "relative",
   zIndex: 1,
+  maxWidth: "var(--max-content-width)",
 };
 
 const posterStyle: CSSProperties = {
@@ -23,6 +27,19 @@ const posterStyle: CSSProperties = {
   zIndex: 0,
   backgroundSize: "cover",
   backgroundPosition: "center",
+};
+
+// design/tokens.json -> layout.marginRegistrationLine, spacing (space-55)
+// design/art-direction.md -> "The basalt-as-grid concept"
+// Vertical hairline at the same left margin SectionShell already pads to
+// (space-55), so it registers consistently down the page section to
+// section — the columnar-basalt link the concept doc names explicitly.
+const registrationLineStyle: CSSProperties = {
+  position: "absolute",
+  left: "var(--space-55)",
+  top: 0,
+  bottom: 0,
+  zIndex: 1,
 };
 
 /**
@@ -40,6 +57,9 @@ export function ProofSection({ posterSrc }: ProofSectionProps) {
       {posterSrc ? (
         <div aria-hidden="true" style={{ ...posterStyle, backgroundImage: `url(${posterSrc})` }} />
       ) : null}
+      <div aria-hidden="true" style={registrationLineStyle}>
+        <Hairline orientation="vertical" />
+      </div>
       <div style={contentStyle}>
         <PullQuote
           quote="He reflected both my gifts and shadows with compassion, camaraderie, and respect. His presence made me feel deeply seen."

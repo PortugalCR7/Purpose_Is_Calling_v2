@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { Hairline } from "@/components/system/Hairline";
 import { EmberCTA } from "@/components/system/EmberCTA";
 import { RevealText } from "@/components/system/RevealText";
 import { SectionShell } from "@/components/system/SectionShell";
@@ -13,9 +14,12 @@ interface WhatThisIsProps {
   posterSrc?: string;
 }
 
+// design/tokens.json -> layout.maxContentWidth_px — reading-column cap,
+// keeps text from running edge-to-edge on wide viewports.
 const contentStyle: CSSProperties = {
   position: "relative",
   zIndex: 1,
+  maxWidth: "var(--max-content-width)",
 };
 
 const posterStyle: CSSProperties = {
@@ -24,6 +28,19 @@ const posterStyle: CSSProperties = {
   zIndex: 0,
   backgroundSize: "cover",
   backgroundPosition: "center",
+};
+
+// design/tokens.json -> layout.marginRegistrationLine, spacing (space-55)
+// design/art-direction.md -> "The basalt-as-grid concept"
+// Vertical hairline at the same left margin SectionShell already pads to
+// (space-55), so it registers consistently down the page section to
+// section — the columnar-basalt link the concept doc names explicitly.
+const registrationLineStyle: CSSProperties = {
+  position: "absolute",
+  left: "var(--space-55)",
+  top: 0,
+  bottom: 0,
+  zIndex: 1,
 };
 
 // design/tokens.json -> spacing.usage.component_rhythm
@@ -49,6 +66,9 @@ export function WhatThisIs({ posterSrc }: WhatThisIsProps) {
       {posterSrc ? (
         <div aria-hidden="true" style={{ ...posterStyle, backgroundImage: `url(${posterSrc})` }} />
       ) : null}
+      <div aria-hidden="true" style={registrationLineStyle}>
+        <Hairline orientation="vertical" />
+      </div>
       <div style={contentStyle}>
         <RevealText as="p" staggerUnit="line">
           {"This is guided work, one person at a time.\nDavid Miranda doesn't hand you answers or a five-step plan.\nHe asks the questions that let you arrive at your own — about what you value, what you're for, and what you've been carrying that was never yours.\nClarity, not advice."}
