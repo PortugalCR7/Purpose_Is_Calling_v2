@@ -1,5 +1,4 @@
 import type { CSSProperties } from "react";
-import { Hairline } from "@/components/system/Hairline";
 import { RevealText } from "@/components/system/RevealText";
 import { SectionShell } from "@/components/system/SectionShell";
 
@@ -29,19 +28,6 @@ const posterStyle: CSSProperties = {
   backgroundPosition: "center",
 };
 
-// design/tokens.json -> layout.marginRegistrationLine, spacing (space-55)
-// design/art-direction.md -> "The basalt-as-grid concept"
-// Vertical hairline at the same left margin SectionShell already pads to
-// (space-55), so it registers consistently down the page section to
-// section — the columnar-basalt link the concept doc names explicitly.
-const registrationLineStyle: CSSProperties = {
-  position: "absolute",
-  left: "var(--space-55)",
-  top: 0,
-  bottom: 0,
-  zIndex: 1,
-};
-
 /**
  * design/tokens.json -> componentContracts.SectionShell, RevealText
  * content/home-narrative.md -> "02 — Something brought you here"
@@ -57,9 +43,6 @@ export function SomethingBroughtYouHere({ posterSrc }: SomethingBroughtYouHerePr
       {posterSrc ? (
         <div aria-hidden="true" style={{ ...posterStyle, backgroundImage: `url(${posterSrc})` }} />
       ) : null}
-      <div aria-hidden="true" style={registrationLineStyle}>
-        <Hairline orientation="vertical" />
-      </div>
       <div style={contentStyle}>
         <RevealText as="p" staggerUnit="line">
           {"Something brought you here.\nA restlessness that success didn't quiet.\nA pull you've been talking yourself out of.\nYou don't have to name it yet.\nYou only have to stop pretending it isn't there."}

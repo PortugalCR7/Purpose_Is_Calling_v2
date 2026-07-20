@@ -1,5 +1,4 @@
 import type { CSSProperties } from "react";
-import { Hairline } from "@/components/system/Hairline";
 import { RevealText } from "@/components/system/RevealText";
 import { SectionShell } from "@/components/system/SectionShell";
 
@@ -34,19 +33,6 @@ const posterStyle: CSSProperties = {
   backgroundPosition: "center",
 };
 
-// design/tokens.json -> layout.marginRegistrationLine, spacing (space-55)
-// design/art-direction.md -> "The basalt-as-grid concept"
-// Vertical hairline at the same left margin SectionShell already pads to
-// (space-55), so it registers consistently down the page section to
-// section — the columnar-basalt link the concept doc names explicitly.
-const registrationLineStyle: CSSProperties = {
-  position: "absolute",
-  left: "var(--space-55)",
-  top: 0,
-  bottom: 0,
-  zIndex: 1,
-};
-
 // design/tokens.json -> spacing.usage.component_rhythm
 const subheadStyle: CSSProperties = {
   marginTop: "var(--space-34)",
@@ -73,9 +59,6 @@ export function Hero({ posterSrc }: HeroProps) {
       {posterSrc ? (
         <div aria-hidden="true" style={{ ...posterStyle, backgroundImage: `url(${posterSrc})` }} />
       ) : null}
-      <div aria-hidden="true" style={registrationLineStyle}>
-        <Hairline orientation="vertical" />
-      </div>
       <div style={contentStyle}>
         <RevealText as="h1" staggerUnit="word">
           You didn&apos;t arrive here by accident.
